@@ -1,8 +1,8 @@
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY=manchy
+REGISTRY=${REGISTRY}
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
-TARGETOS=linux #linux darwin windows
-TARGETARCH=arm64 #arm64 amd64
+TARGETOS=${TARGETOS} #linux darwin windows
+TARGETARCH=${TARGETARCH} #arm64 amd64
 
 format:
 	gofmt -s -w ./
