@@ -38,7 +38,7 @@ jobs:
       - name: Build&Push
         env:
           APP: "kbot"
-          REGISTRY: gcr.io
+          REGISTRY: ${{ secrets.GCR_USERNAME }}
         run: make image push
 
   cd:
