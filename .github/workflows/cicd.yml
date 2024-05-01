@@ -5,9 +5,6 @@ on:
     branches:
       - develop
 
-env:
-  TARGETARCH: "amd64"
-
 jobs:
   ci:
     name: CI
@@ -28,10 +25,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build&Push
-        env:
-          APP: "kbot"
-          REGISTRY: "ghcr.io/${{ github.actor }}"
-          TARGETOS: "linux"
         run: make image push
 
   cd:
