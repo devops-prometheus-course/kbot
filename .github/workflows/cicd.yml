@@ -31,7 +31,7 @@ jobs:
       - name: Build&Push
         env:
           APP: "kbot"
-          REGISTRY: "ghcr.io"
+          REGISTRY: "ghcr.io/${{ github.actor }}"
           TARGETOS: "linux"
           TARGETARCH: "amd64"
         run: make image push
