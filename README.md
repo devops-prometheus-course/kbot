@@ -8,3 +8,6 @@ devops application from scratch
 ```sh
 export TELE_TOKEN=
 ```
+
+### Workflow
+![Image](.github/workflow.jpg)
