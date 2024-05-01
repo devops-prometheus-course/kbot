@@ -22,23 +22,18 @@ jobs:
 
       - name: Run test
         run: make test
-      - name: Authenticate to Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v1
-        with:
-          token_format: access_token
-          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
-          service_account: ${{ secrets.SA_EMAIL }}
-      - name: Login to GCR
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: gcr.io
-          username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build&Push
         env:
           APP: "kbot"
-          REGISTRY: ${{ secrets.GCR_USERNAME }}
+          REGISTRY: "ghcr.io"
+          TARGETOS: "linux"
+          TARGETARCH: "amd64"
         run: make image push
 
   cd:
