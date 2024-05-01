@@ -1,6 +1,9 @@
 name: KBOT-CICD
 
-on: push
+on: 
+  push:
+    branches:
+      - develop
 
 jobs:
   ci:
@@ -35,6 +38,7 @@ jobs:
       - name: Build&Push
         env:
           APP: "kbot"
+          REGISTRY: gcr.io
         run: make image push
 
   cd:
