@@ -1,5 +1,8 @@
 FROM golang:1.22.1 as builder
 
+ARG TARGETOS
+ARG TARGETARCH
+
 WORKDIR /go/src/app
 COPY . .
 RUN make build
