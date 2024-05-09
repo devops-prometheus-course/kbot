@@ -1,0 +1,9 @@
+*.retry
+.terraform
+.terraform.lock.hcl
+secrets.tfvars
+vault.json
+ansible.cfg
+ansible/roles
+ansible/vars/user
+*.zip
