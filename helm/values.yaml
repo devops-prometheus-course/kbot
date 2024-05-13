@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: manchy
-  tag: v1.0.2-e321bac
+  tag: v1.0.2-0719e04
   arch: amd64
 secret:
   name: kbot
